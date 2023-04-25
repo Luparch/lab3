@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('brand');
             $table->string('model');
-            $table->string('number');
+            $table->string('number')->unique();
             $table->string('owner');
         });
     }

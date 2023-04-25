@@ -17,7 +17,11 @@ class CarFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id' => 1,
+            'brand' => 'bmw',
+            'model' => 'qwer',
+            'number' => '123-abc',
+            'owner' => 'owner1'
         ];
     }
 }

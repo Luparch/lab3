@@ -66,7 +66,7 @@ paths:
           description: машина удалена
     put:
       summary: заменить машину по id
-      operationId: ReplaceCarById
+      operationId: replaceCarById
       requestBody:
         description: объект машины для замены
         required: true
@@ -79,7 +79,7 @@ paths:
           description: машина заменена
     patch:
       summary: обновить заданные поля машины по id
-      operationId: PatchCarById
+      operationId: patchCarById
       requestBody:
         description: поля машины для замены
         required: true
