@@ -38,7 +38,7 @@ class CarController extends Controller
 
     public function deleteCarById(DeleteCarRequest $request, DeleteCarAction $action)
     {
-        return new CarResource($action->execute($request->carId));
+        return ['data' => $action->execute($request->carId)];
     }
 
     public function replaceCarById(PutCarRequest $request, ReplaceCarAction $action)

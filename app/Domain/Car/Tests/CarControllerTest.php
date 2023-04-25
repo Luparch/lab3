@@ -4,10 +4,6 @@ use App\Domain\Car\Models\Car;
 
 uses(Tests\TestCase::class);
 
-beforeAll(function () {
-    Car::truncate();
-});
-
 afterEach(function () {
     Car::truncate();
 });
@@ -29,17 +25,18 @@ test('test post car', function () {
 });
 
 test('test get car', function () {
-    $car = Car::create(Car::factory()->raw());
+    $raw = Car::factory()->raw();
+    $car = Car::create($raw);
     
     $response = $this->get("/api/v1/cars/{$car->id}");
 
     $response->assertStatus(200)->assertJson([
-        'data' => $car
+        'data' => $raw
     ]);
 });
 
 test('test delete car', function () {
-    $car = Car::create(Car::factory()->raw());
+    $car = Car::factory()->create();
     
     $response = $this->delete("/api/v1/cars/{$car->id}");
 
@@ -49,28 +46,30 @@ test('test delete car', function () {
 });
 
 test('test patch car', function () {
-    $car = Car::create(Car::factory()->raw());
+    $raw = Car::factory()->raw();
+    $car = Car::create($raw);
 
     $body = [
         'owner' => 'owner1111'
     ];    
     $response = $this->patch("/api/v1/cars/{$car->id}", $body);
 
-    $newCar = array_merge($car, $body);
+    $newCar = array_merge($raw, $body);
     $response->assertStatus(200)->assertJson([
         'data' => $newCar
     ]);
 });
 
 test('test put car', function () {
-    $car = Car::create(Car::factory()->raw());
-    
+    $raw = Car::factory()->raw();
+    $car = Car::create($raw);
+
     $body = [
         'id' => $car->id,
         'brand' => 'bmw',
         'model' => 'qwertyqwerty',
         'number' => '123-abc',
-        'owner' => 'owner1'
+        'owner' => 'owner11111'
     ];
     $response = $this->put("/api/v1/cars/{$car->id}", $body);
 

@@ -12,6 +12,6 @@ class DeleteCarAction
         if ($car != null){
             $car->delete();
         }
-        return $car->find($carId);
+        return Car::find($carId);
     }
 }
