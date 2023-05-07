@@ -15,5 +15,11 @@ class PostCarRequest extends FormRequest
             'number' => ['string'],
             'owner' => ['string']
         ];
+        
+    }
+
+    public function prepareForValidation()
+    {
+        $this->merge(['id', $this->route('carId')]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Domain\Repair\Models\Repair;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class RepairFactory extends Factory
 {
+
+    protected $model = Repair::class;
+
     /**
      * Define the model's default state.
      *
@@ -17,7 +21,11 @@ class RepairFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id' => 1,
+            'car_id' => 1,
+            'car_service_id' => 1,
+            'issue' => 'far net',
+            'price' => 5000
         ];
     }
 }

@@ -253,6 +253,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Error"
+        meta:
+          type: object
     CarsBody:
       type: object
       required:
@@ -266,6 +268,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Error"
+        meta:
+          type: object
     CarServiceBody:
       type: object
       required:
@@ -278,6 +282,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Error"
+        meta:
+          type: object
     CarServicesBody:
       type: object
       required:
@@ -291,6 +297,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Error"
+        meta:
+          type: object
     RepairBody:
       type: object
       required:
@@ -303,6 +311,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Error"
+        meta:
+          type: object
     RepairsBody:
       type: object
       required:
@@ -316,6 +326,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Error"
+        meta:
+          type: object
     Error:
       type: object
       required:
@@ -324,6 +336,8 @@ components:
       properties:
         code:
           type: integer
+          enum:
+            - 1
         message:
           type: string
         meta:

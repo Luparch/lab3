@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('repairs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('car_id');
-            $table->foreignId('car_service_id');
+            $table->foreignId('car_id')->constrained();
+            $table->foreignId('car_service_id')->constrained();
             $table->string('issue');
             $table->integer('price');
         });

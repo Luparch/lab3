@@ -3,9 +3,10 @@
 return [
     'path' => '/docs/swagger',
 
-    'urls' => 
-    [
-        'url' => 'api.yaml',
-        'name' => 'swagger-api'
+    'urls' => [
+        [
+            'url' => 'api.yaml',
+            'name' => 'swagger-api'
+        ]
     ],
 ];

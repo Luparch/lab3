@@ -8,6 +8,6 @@ class GetAllCarsAction
 {
     public function execute()
     {
-        return Car::all();
+        return Car::paginate(15);
     }
 }

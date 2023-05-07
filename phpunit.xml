@@ -14,6 +14,12 @@
         <testsuite>
             <directory suffix="Test.php">./app/Domain/Car/Tests</directory>
         </testsuite>
+        <testsuite>
+            <directory suffix="Test.php">./app/Domain/CarService/Tests</directory>
+        </testsuite>
+        <testsuite>
+            <directory suffix="Test.php">./app/Domain/Repair/Tests</directory>
+        </testsuite>
     </testsuites>
     <source>
         <include>

@@ -40,6 +40,12 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('api')
                 ->group(base_path('app/Http/ApiV1/Modules/Car/routes.php'));
+
+            Route::middleware('api')
+                ->group(base_path('app/Http/ApiV1/Modules/CarService/routes.php'));
+
+            Route::middleware('api')
+                ->group(base_path('app/Http/ApiV1/Modules/Repair/routes.php'));
         });
     }
 }

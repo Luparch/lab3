@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Domain\CarService\Models\CarService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class CarServiceFactory extends Factory
 {
+
+    protected $model = CarService::class;
+    
     /**
      * Define the model's default state.
      *
@@ -17,7 +21,10 @@ class CarServiceFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id' => 1,
+            'name' => 'priton',
+            'address' => 'pupupup',
+            'owner' => 'owner1'
         ];
     }
 }
