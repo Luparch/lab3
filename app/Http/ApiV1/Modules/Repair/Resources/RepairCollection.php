@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\ApiV1\Modules\Repair\Resources;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\ResourceCollection;
+
+class RepairCollection extends ResourceCollection
+{
+
+    public function toArray(Request $request)
+    {
+        return [
+            'data' => $this->collection
+        ];
+    }
+}
