@@ -15,6 +15,8 @@ use App\Http\ApiV1\Modules\Repair\Requests\PutRepairRequest;
 use App\Domain\Repair\Actions\ReplaceRepairAction;
 use App\Domain\Repair\Actions\PatchRepairAction;
 use App\Http\ApiV1\Modules\Repair\Requests\PatchRepairRequest;
+use App\Domain\Repair\Actions\ElasticAction;
+use App\Http\ApiV1\Modules\Repair\Requests\ElasticRequest;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
@@ -22,6 +24,12 @@ use Illuminate\Http\Request;
 
 class RepairController extends Controller
 {
+
+    public function elasticMethod(ElasticRequest $request, ElasticAction $action)
+    {
+        return new RepairCollection($action->execute($request));
+    }
+
     public function getRepairs(GetAllRepairsAction $action)
     {
         return new RepairCollection($action->execute());

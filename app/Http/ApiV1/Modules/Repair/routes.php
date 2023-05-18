@@ -25,6 +25,8 @@ Route::group(['prefix' => '/api/v1'], function () {
                 Route::patch('', 'patchRepairById');
         
             })->whereNumber('repairId');
+
+            Route::get('elastic', 'elasticMethod');
     
         });
     
