@@ -238,7 +238,59 @@ paths:
       responses:
         '200':
           description: запись обновлена
-
+  /repairs/elastic:
+    parameters:
+      - description: причина поломки для фильтрации 
+        in: query
+        required: false
+        name: issue
+        schema:
+          type: string
+      - description: название поля для сортировки
+        in: query
+        required: false
+        name: sort
+        schema:
+          type: string
+      - description: максимальное кол-во возвращенных записей
+        in: query
+        required: false
+        name: size
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - description: кол-во записей, которое будет проигнорированно
+        in: query
+        required: false
+        name: from
+        schema:
+          type: integer
+          format: int32
+          default: 0
+    get:
+      summary: получить массив записей с фильтрацией, сортировкой, пагинацией
+      operationId: elasticMethod
+      responses:
+        '200':
+          description: возвращен массив
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      hits:
+                        type: object
+                        properties:
+                          hits:
+                            type: array
+                            items: 
+                              $ref: "#/components/schemas/Hit"
 components:
   schemas:
     CarBody:
@@ -402,3 +454,40 @@ components:
         car_service_id: 
           type: integer
           format: int64
+    Hit:
+      type: object
+      required:
+        - _index
+        - _id
+        - _score
+        - _source
+      properties:
+        _index:
+          type: string
+        _id:
+          type: integer
+        _score:
+          type: number
+          format: double
+        _source:
+          type: object
+          $ref: "#/components/schemas/JoinedRepair"
+    JoinedRepair:
+      type: object
+      required:
+        - issue
+        - price
+        - car
+        - car_service
+      properties:
+        issue:
+          type: string
+        price:
+          type: integer
+          format: int64
+        car:
+          type: object
+          $ref: "#/components/schemas/Car"
+        car_service:
+          type: integer
+          $ref: "#/components/schemas/CarService"

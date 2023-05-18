@@ -14,7 +14,7 @@ class ReplaceRepairAction
             return Repair::create($fields);
         }else{
             $repair->update($fields);
-            return $car = Repair::find($repairId);
+            return Repair::find($repairId);
         }
     }
 }
